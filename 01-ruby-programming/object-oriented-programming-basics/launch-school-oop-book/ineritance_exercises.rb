@@ -1,3 +1,8 @@
+module Towable
+  def can_tow?(pounds)
+    pounds < 2000
+  end
+end
 class Vehicle
   @@number_of_vehicles = 0
 
@@ -52,6 +57,7 @@ class MyCar < Vehicle
 end
 
 class MyTruck < Vehicle
+  include Towable
   NUMBER_OF_DOORS = 2
   def to_s 
     "My truck is a #{color}, #{year}, #{model}."
@@ -64,3 +70,6 @@ my_truck = MyTruck.new("2020", "Ford Tundra", "white")
 puts my_car
 puts my_truck
 puts Vehicle.number_of_vehicles
+
+puts my_truck.can_tow?(3000)
+puts my_truck.can_tow?(1000)
