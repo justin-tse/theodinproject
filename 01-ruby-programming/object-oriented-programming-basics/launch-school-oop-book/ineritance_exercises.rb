@@ -73,3 +73,10 @@ puts Vehicle.number_of_vehicles
 
 puts my_truck.can_tow?(3000)
 puts my_truck.can_tow?(1000)
+
+puts "-" * 18
+puts MyCar.ancestors
+puts "-" * 18
+puts MyTruck.ancestors
+puts "-" * 18
+puts Vehicle.ancestors
