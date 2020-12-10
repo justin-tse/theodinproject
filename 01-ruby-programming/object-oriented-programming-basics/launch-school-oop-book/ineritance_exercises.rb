@@ -1,4 +1,6 @@
 class Vehicle
+  @@number_of_vehicles = 0
+
   attr_accessor :color
   attr_reader :year, :model
 
@@ -6,11 +8,16 @@ class Vehicle
     puts "#{miles / gallons} miles per gallon of gas"
   end
 
+  def self.number_of_vehicles
+    puts "This program has created #{@@number_of_vehicles} vehicles."
+  end
+
   def initialize(year, model, color)
     @year = year
     @model = model
     @color = color
     @current_speed = 0
+    @@number_of_vehicles += 1
   end
 
   def speed_up(number)
@@ -56,3 +63,4 @@ my_truck = MyTruck.new("2020", "Ford Tundra", "white")
 
 puts my_car
 puts my_truck
+puts Vehicle.number_of_vehicles
