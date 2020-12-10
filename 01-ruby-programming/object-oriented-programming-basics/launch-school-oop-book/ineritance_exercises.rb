@@ -48,6 +48,16 @@ class Vehicle
     self.color = color
     puts "Your new #{color} paint job looks great!"
   end
+
+  def age
+    puts "Your #{self.model} is #{years_old} years old."
+  end
+
+  private
+  
+  def years_old
+    Time.now.year - self.year.to_i
+  end
 end
 class MyCar < Vehicle
   NUMBER_OF_DOORS = 4
@@ -64,8 +74,8 @@ class MyTruck < Vehicle
   end
 end
 
-my_car = MyCar.new("2020", "Ford Focus", "silver")
-my_truck = MyTruck.new("2020", "Ford Tundra", "white")
+my_car = MyCar.new('2018', "Ford Focus", "silver")
+my_truck = MyTruck.new('2018', "Ford Tundra", "white")
 
 puts my_car
 puts my_truck
@@ -80,3 +90,44 @@ puts "-" * 18
 puts MyTruck.ancestors
 puts "-" * 18
 puts Vehicle.ancestors
+
+my_car.speed_up(20)
+my_car.current_speed
+my_car.speed_up(20)
+my_car.current_speed
+my_car.brake(20)
+my_car.current_speed
+my_car.brake(20)
+my_car.current_speed
+my_car.shut_down
+MyCar.gas_mileage(13, 351)
+my_car.spray_paint("red")
+puts my_car.age
+
+
+class Student
+  attr_reader :name
+
+  def initialize(name, grade)
+    @name = name
+    @grade = grade
+  end
+
+  def better_grade_than?(other_student)
+    self.grade > other_student.grade
+  end
+
+  protected
+
+  def grade
+    @grade
+  end
+
+end
+
+joe = Student.new("Joe", 90)
+bob = Student.new("Bob", 84)
+
+puts "Well done!" if joe.better_grade_than?(bob)
+# can't work
+# bob.grade
