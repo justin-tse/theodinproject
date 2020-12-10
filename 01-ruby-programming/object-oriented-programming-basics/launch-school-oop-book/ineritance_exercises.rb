@@ -1,4 +1,3 @@
-
 class Vehicle
   attr_accessor :color
   attr_reader :year, :model
@@ -38,24 +37,22 @@ class Vehicle
     puts "Your new #{color} paint job looks great!"
   end
 end
-
 class MyCar < Vehicle
   NUMBER_OF_DOORS = 4
-
   def to_s 
     "My car is a #{color}, #{year}, #{model}."
   end
 end
 
 class MyTruck < Vehicle
-  NUMBER_OF_DOORS = 2  
-  
+  NUMBER_OF_DOORS = 2
   def to_s 
     "My truck is a #{color}, #{year}, #{model}."
   end
 end
 
-my_car = MyCar.new("2010", "Ford Focus", "silver")
-my_truck = MyTruck.new("2010", "Ford Tundra", "white")
+my_car = MyCar.new("2020", "Ford Focus", "silver")
+my_truck = MyTruck.new("2020", "Ford Tundra", "white")
+
 puts my_car
 puts my_truck
